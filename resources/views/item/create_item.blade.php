@@ -7,19 +7,19 @@
             <form action="{{url('storeitem/'.$id.'/'.$todo)}}" method="POST">
                 @csrf
                 <!-- <label for="">ToDo ID</label><br> -->
-                <input hidden type="text" name="todo_id" class="form-control" value='{{$id}}'><br>
+                <input hidden type="text" name="todo_id" class="form-control" value='{{$id}}' ><br>
                 <label for="">Item</label><br>
-                <input type="text" name="item" class="form-control"><br>
+                <input type="text" name="item" class="form-control" autocomplete="off"><br>
 
                 <label for="">Criticidade</label><br>
-                <select class="form-control" name="prioridade">
+                <select class="form-control" name="prioridade" autocomplete="off">
                     <option value="Alta">Alta</option>
                     <option value="Média">Média</option>
                     <option value="Baixa">Baixa</option>
                 </select><br>   
 
                 <label for="">Status</label><br>
-                <select readonly class="form-control" name="status">
+                <select readonly class="form-control" name="status" autocomplete="off">
                     <option value="PENDENTE">PENDENTE</option>
                 </select><br>   
 

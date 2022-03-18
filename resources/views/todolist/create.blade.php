@@ -7,20 +7,20 @@
             <form action="{{url('store')}}" method="POST">
                 @csrf
                 <label for="">To Do</label><br>
-                <input type="text" name="todo" class="form-control"><br>
+                <input type="text" name="todo" class="form-control" autocomplete="off"><br>
 
                 <label for="">Responsavel</label><br>
-                <input type="text" name="responsavel" class="form-control"><br>
+                <input type="text" name="responsavel" class="form-control" autocomplete="off"><br>
 
                 <label for="">Criticidade</label><br>
-                <select class="form-control" name="criticidade">
+                <select class="form-control" name="criticidade" autocomplete="off">
                     <option value="Alta">Alta</option>
                     <option value="Média">Média</option>
                     <option value="Baixa">Baixa</option>
                 </select><br>   
 
                 <label for="">Status</label><br>
-                <select readonly class="form-control" name="status">
+                <select readonly class="form-control" name="status" autocomplete="off">
                     <option value="PENDENTE">PENDENTE</option>
                 </select><br>   
 
