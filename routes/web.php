@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodolistController;
+use App\Http\Controllers\ItensController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,12 @@ Route::post('/store', [TodolistController::class, 'store']);
 Route::get('/edit/{id}', [TodolistController::class, 'edit']);
 Route::post('/update/{id}', [TodolistController::class, 'update']);
 Route::get('/delete/{id}', [TodolistController::class, 'destroy']);
+
+# ITENS
+
+Route::get('/itens/{id}/{todo}', [ItensController::class, 'itens']);
+Route::get('/additem/{id}/{todo}', [ItensController::class, 'add']);
+Route::post('/storeitem/{id}/{todo}', [ItensController::class, 'store']);
+Route::get('/edititens/{id}/{todo_id}/{todo}', [ItensController::class, 'edit']);
+Route::post('/updateitem/{id}/{todo_id}/{todo}', [ItensController::class, 'update']);
+Route::get('/deleteitem/{id}/{todo_id}/{todo}', [ItensController::class, 'destroy']);
