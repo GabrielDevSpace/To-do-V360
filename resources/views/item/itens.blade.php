@@ -20,6 +20,7 @@
                             <th>#</th>
                             <th>Item</th>
                             <th>Prioridade</th>
+                            <th>Status</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -27,7 +28,13 @@
                     @foreach ($item as $item)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->item}}</td>
+                            <td>
+                            <spam <?php if ($item->status == "REALIZADO"){
+                                    echo "style='text-decoration:line-through;color:gray'";
+                                } ?>>
+                                {{$item->item}}
+                            </spam>   
+                            </td>
                             <td>
                                 <spam <?php 
                                 if($item->prioridade == 'Alta'){
@@ -38,6 +45,15 @@
                                     echo "style='color:#6aa84f;border-radius:10px; padding: 1px 5px 1px 5px;font-size:22px'";
                                 }
                                 ?>><i class="fa fa-exclamation-triangle"></i></spam>    
+                            </td>
+                            <td>
+                                <spam <?php 
+                                if($item->status == 'PENDENTE'){
+                                    echo "style='background-color:#bcbcbc;color:#fff;border-radius:10px; padding: 1px 5px 1px 5px;font-size:13px'";
+                                } else {
+                                    echo "style='background-color:#80b16b;color:#fff;border-radius:10px; padding: 1px 5px 1px 5px;font-size:13px'";
+                                }
+                                ?>>{{$item->status}}</spam> 
                             </td>
                             <td>
                                 <a href="{{url('edititens/'.$item->id.'/'.$todo_id.'/'.$todo)}}" class="btn btn-primary"><b>Editar</b></a>

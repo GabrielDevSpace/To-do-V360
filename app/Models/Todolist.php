@@ -13,6 +13,7 @@ class Todolist extends Model
         'todo',
         'responsavel',
         'criticidade',
+        'status',
     ];
 
    

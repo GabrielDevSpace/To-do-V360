@@ -13,5 +13,6 @@ class Itens extends Model
         'todo_id',
         'item',
         'prioridade',
+        'status',
     ];
 }

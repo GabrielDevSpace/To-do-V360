@@ -19,14 +19,24 @@
                             <th>To Do</th>
                             <th>Responsavel</th>
                             <th>Criticidade</th>
+                            <th>Status</th>
+                            <!--<th><i class="fa fa-calendar-check-o" style="color:green"></i></th> -->
+                            <th><i class="fa fa-calendar-times-o" style="color:rgb(46, 46, 46)"></i></th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach ($todolist as $item)
+
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->todo}}</td>
+                            <td>
+                                <spam <?php if ($item->status == "REALIZADO"){
+                                    echo "style='text-decoration:line-through;color:gray'";
+                                } ?>>
+                                {{$item->todo}}
+                                </spam> 
+                            </td>
                             <td>{{$item->responsavel}}</td>
                             <td>
                                 <spam <?php 
@@ -38,6 +48,35 @@
                                     echo "style='color:#6aa84f;border-radius:10px; padding: 1px 5px 1px 5px;font-size:22px'";
                                 }
                                 ?>><i class="fa fa-exclamation-triangle"></i></spam>  
+                            </td>
+                            <td>
+                                <spam <?php 
+                                if($item->status == 'PENDENTE'){
+                                    echo "style='background-color:#bcbcbc;color:#fff;border-radius:10px; padding: 1px 5px 1px 5px;font-size:13px'";
+                                } else {
+                                    echo "style='background-color:#80b16b;color:#fff;border-radius:10px; padding: 1px 5px 1px 5px;font-size:13px'";
+                                }
+                                ?>>{{$item->status}}</spam> 
+                            </td>
+                            <!-- <td>
+                                {{
+                                $count = DB::table("todoitens")
+                                ->select("id")
+                                ->where("status", 'REALIZADO')
+                                ->where("todo_id", $item->id)
+                                ->count();
+                                }}
+                            </td> -->
+                            <td>
+                                <b style="color:rgb(150, 150, 150)">
+                                {{
+                                $count = DB::table("todoitens")
+                                ->select("id")
+                                ->where("status", 'PENDENTE')
+                                ->where("todo_id", $item->id)
+                                ->count();
+                                }}
+                                </b>
                             </td>
                             <td>
                                 <a href="{{url('itens/'.$item->id.'/'.$item->todo)}}" class="btn btn-success"><b>Adicionar Item</b></a>

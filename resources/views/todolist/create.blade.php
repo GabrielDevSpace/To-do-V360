@@ -19,6 +19,11 @@
                     <option value="Baixa">Baixa</option>
                 </select><br>   
 
+                <label for="">Status</label><br>
+                <select readonly class="form-control" name="status">
+                    <option value="PENDENTE">PENDENTE</option>
+                </select><br>   
+
                 <input type="submit" value="Adicionar Todo" class="btn btn-success"><br>
             </form>
         </div>

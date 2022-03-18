@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodolistController;
 use App\Http\Controllers\ItensController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +23,6 @@ Route::post('/update/{id}', [TodolistController::class, 'update']);
 Route::get('/delete/{id}', [TodolistController::class, 'destroy']);
 
 # ITENS
-
 Route::get('/itens/{id}/{todo}', [ItensController::class, 'itens']);
 Route::get('/additem/{id}/{todo}', [ItensController::class, 'add']);
 Route::post('/storeitem/{id}/{todo}', [ItensController::class, 'store']);

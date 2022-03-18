@@ -18,6 +18,7 @@ class CreateItensTable extends Migration
             $table->string('todo_id'); # Declarado Unsigned pois sera uma chave estrangeira
             $table->string('item');
             $table->string('prioridade');
+            $table->string('status');
             $table->timestamps();
         });
     }

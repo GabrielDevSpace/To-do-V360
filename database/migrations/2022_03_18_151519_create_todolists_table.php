@@ -18,6 +18,7 @@ class CreateTodolistsTable extends Migration
             $table->string('todo');
             $table->string('responsavel');
             $table->string('criticidade');
+            $table->string('status');
             $table->timestamps();
         });
     }

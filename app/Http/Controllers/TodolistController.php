@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todolist;
+use Illuminate\Support\Facades\DB;
+use App\Models\Itens;
 
 class TodolistController extends Controller
 {
     public function index()
     {
         $todolists = Todolist::all();
-        // dd($todolistss);
         return view('todolist.index')->with('todolist', $todolists);
     }
 

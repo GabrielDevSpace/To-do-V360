@@ -18,6 +18,13 @@
                     <option value="Baixa">Baixa</option>
                 </select><br>
 
+                <label for="">Status</label><br>
+                <select class="form-control" name="status">
+                    <option value="{{$item->status}}">{{$item->status}}</option>
+                    <option value="PENDENTE">PENDENTE</option>
+                    <option value="REALIZADO">REALIZADO</option>
+                </select><br>   
+
                 <input type="submit" value="Atualizar Item" class="btn btn-success">
             </form>
         </div>
