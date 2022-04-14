@@ -15,7 +15,8 @@ class CreateItensTable extends Migration
     {
         Schema::create('todoitens', function (Blueprint $table) {
             $table->id();
-            $table->string('todo_id'); # Declarado Unsigned pois sera uma chave estrangeira
+            $table->unsignedBigInteger('todo_id');
+            $table->foreign('todo_id')->references('id')->on('todolist')->onUpdate('cascade')->onDelete('cascade');
             $table->string('item');
             $table->string('prioridade');
             $table->string('status');
