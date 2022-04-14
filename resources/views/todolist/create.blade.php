@@ -4,7 +4,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{url('store')}}" method="POST">
+            <form action="{{url('store')}}" method="POST" >
                 @csrf
                 <label for="">To Do</label><br>
                 <input type="text" name="todo" class="form-control" autocomplete="off"><br>

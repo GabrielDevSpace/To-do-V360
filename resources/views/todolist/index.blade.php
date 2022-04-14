@@ -81,7 +81,7 @@
                             <td>
                                 <a href="{{url('itens/'.$item->id.'/'.$item->todo)}}" class="btn btn-success"><b>Adicionar Item</b></a>
                                 <a href="{{url('edit/'.$item->id)}}" class="btn btn-primary"><b>Editar</b></a>
-                                <a href="{{url('delete/'.$item->id)}}" class="btn btn-danger"><b>Excluir</b></a>
+                                <a href="{{url('delete/'.$item->id)}}" class="btn btn-danger" onclick="if (confirm('Você realmente deseja EXCLUIR essa lista e seus itens?')){return true;}else{event.stopPropagation(); event.preventDefault();};"><b>Excluir</b></a>
                             </td>
                         </tr>
                     @endforeach

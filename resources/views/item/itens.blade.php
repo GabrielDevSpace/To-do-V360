@@ -57,7 +57,7 @@
                             </td>
                             <td>
                                 <a href="{{url('edititens/'.$item->id.'/'.$todo_id.'/'.$todo)}}" class="btn btn-primary"><b>Editar</b></a>
-                                <a href="{{url('deleteitem/'.$item->id.'/'.$todo_id.'/'.$todo)}}" class="btn btn-danger"><b>Excluir</b></a>
+                                <a href="{{url('deleteitem/'.$item->id.'/'.$todo_id.'/'.$todo)}}" class="btn btn-danger" onclick="if (confirm('Você realmente deseja EXCLUIR este Item?')){return true;}else{event.stopPropagation(); event.preventDefault();};"><b>Excluir</b></a>
                             </td>
                         </tr>
                     @endforeach
