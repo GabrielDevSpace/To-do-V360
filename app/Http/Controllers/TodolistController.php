@@ -11,7 +11,7 @@ class TodolistController extends Controller
 {
     public function index()
     {
-        $todolists = Todolist::all();
+        $todolists = Todolist::where('status', '=', 'PENDENTE')->orderBy('id', 'DESC')->get();
         return view('todolist.index')->with('todolist', $todolists);
     }
 

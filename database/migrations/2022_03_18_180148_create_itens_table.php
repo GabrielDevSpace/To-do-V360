@@ -20,6 +20,7 @@ class CreateItensTable extends Migration
             $table->string('item');
             $table->string('prioridade');
             $table->string('status');
+            $table->date('prazo');
             $table->timestamps();
         });
     }

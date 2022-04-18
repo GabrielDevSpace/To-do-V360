@@ -10,7 +10,7 @@ class ItensController extends Controller
 {
     public function itens($id, $todo)
     {
-        $itens = Itens::where('todo_id', '=', $id)->get();
+        $itens = Itens::where('todo_id', '=', $id)->orderBy('status', 'ASC')->orderBy('prazo', 'ASC')->get();
         return view('item.itens', ['id'=> $id, 'todo'=> $todo])->with('item', $itens);
     }
 

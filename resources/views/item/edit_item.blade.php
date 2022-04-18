@@ -17,6 +17,9 @@
                     <option value="Média">Média</option>
                     <option value="Baixa">Baixa</option>
                 </select><br>
+                
+                <label for="">Data Prazo:</label>
+                <input type="date" class="form-control" value="{{$item->prazo}}" name="prazo"><br>
 
                 <label for="">Status</label><br>
                 <select class="form-control" name="status" autocomplete="off">

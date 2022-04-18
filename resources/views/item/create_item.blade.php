@@ -18,6 +18,9 @@
                     <option value="Baixa">Baixa</option>
                 </select><br>   
 
+                <label for="">Data Prazo:</label>
+                <input type="date" class="form-control" name="prazo"><br>
+
                 <label for="">Status</label><br>
                 <select readonly class="form-control" name="status" autocomplete="off">
                     <option value="PENDENTE">PENDENTE</option>

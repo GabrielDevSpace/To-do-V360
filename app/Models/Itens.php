@@ -14,5 +14,6 @@ class Itens extends Model
         'item',
         'prioridade',
         'status',
+        'prazo',
     ];
 }
