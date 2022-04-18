@@ -11,6 +11,11 @@
     color: rgb(120, 120, 120);
 }
 
+.table tr th {
+    font-size: small;
+    color: #6c6c6c;
+}
+
 .table-slin td  {
     padding: 3px;
     font-size: 13px;
@@ -23,6 +28,13 @@
 .texto-shadow   {
     text-shadow: 1px 1px 3px rgb(222, 222, 222);
 }
+
+.texto-gold   {
+    color: rgb(255, 153, 0);
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgb(101, 101, 101);
+}
+
 
 .line   {
     width: 100%;
@@ -72,3 +84,4 @@
     margin-top: 0;
     margin-right: 0;
 }
+

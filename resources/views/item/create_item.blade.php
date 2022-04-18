@@ -9,7 +9,7 @@
                 <!-- <label for="">ToDo ID</label><br> -->
                 <input hidden type="text" name="todo_id" class="form-control" value='{{$id}}' ><br>
                 <label for="">Item</label><br>
-                <input type="text" name="item" class="form-control" autocomplete="off"><br>
+                <input type="text" name="item" class="form-control" autocomplete="off" required><br>
 
                 <label for="">Criticidade</label><br>
                 <select class="form-control" name="prioridade" autocomplete="off">
@@ -19,7 +19,7 @@
                 </select><br>   
 
                 <label for="">Data Prazo:</label>
-                <input type="date" class="form-control" name="prazo"><br>
+                <input type="date" class="form-control" name="prazo" required><br>
 
                 <label for="">Status</label><br>
                 <select readonly class="form-control" name="status" autocomplete="off">

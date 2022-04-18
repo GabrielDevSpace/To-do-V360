@@ -10,8 +10,11 @@ class ItensController extends Controller
 {
     public function itens($id, $todo)
     {
-        $itens = Itens::where('todo_id', '=', $id)->orderBy('status', 'ASC')->orderBy('prazo', 'ASC')->get();
-        return view('item.itens', ['id'=> $id, 'todo'=> $todo])->with('item', $itens);
+        
+
+        $itens = Itens::where('todo_id', '=', $id)->where('status', '=' , 'PENDENTE')->orderBy('prazo', 'ASC')->get();
+        $itens_done = Itens::where('todo_id', '=', $id)->where('status', '=' , 'REALIZADO')->orderBy('updated_at', 'DESC')->get();
+        return view('item.itens', ['id'=> $id, 'todo'=> $todo])->with('item', $itens)->with('item_done', $itens_done);
     }
 
     public function add($id, $todo)

@@ -8,7 +8,7 @@
             <form action=" {{url('updateitem/'.$item->id.'/'.$todo_id.'/'.$todo)}} " method="post">
                 @csrf
                 <label for="">Item</label><br>
-                <input type="text" name="item" class="form-control" value="{{$item->item}}" autocomplete="off"><br>
+                <input type="text" name="item" class="form-control" value="{{$item->item}}" autocomplete="off" required><br>
 
                 <label for="">Prioridade</label><br>
                 <select class="form-control" name="prioridade" autocomplete="off">
@@ -19,7 +19,7 @@
                 </select><br>
                 
                 <label for="">Data Prazo:</label>
-                <input type="date" class="form-control" value="{{$item->prazo}}" name="prazo"><br>
+                <input type="date" class="form-control" value="{{$item->prazo}}" name="prazo" required><br>
 
                 <label for="">Status</label><br>
                 <select class="form-control" name="status" autocomplete="off">

@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">To Do List<b></b></a>
         <a href="{{url('/')}}" class="btn btn-primary" title="Adicionar Novo Item">
-            <spam><i class="fa fa-home" aria-hidden="true"></i></spam>
+            <span><i class="fa fa-home" aria-hidden="true"></i></span>
             
         </a> 
     
@@ -25,6 +25,8 @@
     <div align="center">
        
     </div>
-</body>
+   
 
+</body>
+  
 </html>
