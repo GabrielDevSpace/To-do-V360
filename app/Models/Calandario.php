@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calandario extends Model
 {
+    
     use HasFactory;
+    
 }

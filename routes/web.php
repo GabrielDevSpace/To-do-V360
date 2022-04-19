@@ -33,3 +33,4 @@ Route::get('/deleteitem/{id}/{todo_id}/{todo}', [ItensController::class, 'destro
 
 # CALENDARIO
 Route::get('/calendario', [CalendarioController::class, 'calendario']);
+Route::get('/calendario/{data_calendario}', [CalendarioController::class, 'task']);

@@ -84,7 +84,7 @@
      
       // agora já podemos começar a preencher o
       // calendário
-      for($dia = 01; $dia <= $dias_mes; $dia++ ){
+      for($dia = 1; $dia <= $dias_mes; $dia++ ){
         if($dia_inicio == 0){
           // vamos colorir o domingo de vermelho
           $estilo = 'red';
@@ -121,32 +121,11 @@
     $dia="06";
   } else if ($dia=='7'){
     $dia="07";
-  } else if ($dia=='8'){
+  } else if  ($dia=='8'){
     $dia="08";
   } else if ($dia=='9'){
     $dia="09";
   }
-
-  if ($mes=='1'){
-    $mes="01";
-  } else if ($mes=='2'){
-    $mes="02";
-  } else if ($mes=='3'){
-    $mes="03";
-  } else if ($mes=='4'){
-    $mes="04";
-  } else if ($mes=='5'){
-    $mes="05";
-  } else if ($mes=='6'){
-    $mes="06";
-  } else if ($mes=='7'){
-    $mes="07";
-  } else if ($mes=='8'){
-    $mes="08";
-  } else if ($mes=='9'){
-    $mes="09";
-  }
-  
   $data_soma=$ano.'-'.$mes.'-'.$dia;
  
   {{  $count = DB::table("todoitens")
@@ -155,14 +134,20 @@
       ->where("prazo", $data_soma)
       ->count();
     }}
+
   ?>
   
   <div align='center'>
-  @if(empty($count))
-    <b style='color:#f0f0f0'><i>0</i> Tasks</b>
-  @else
-  <a href="{{url('/calendario/'.$data_soma)}}" class="btn btn-success btn-small" title="Adicionar Novo Item">{{$count}}</a>
-  @endif
+  <?php
+  if(empty($count)){
+    echo "<b style='color:#f0f0f0'><i>0</i> Tasks</b>";
+  } else {
+  echo "<b style='padding:0px 5px 0px 5px;background-color:#0092ec; border-radius:15px;color:#fff'>"?>
+  <a href="{{url('/calendario/'.$data_calendario)}}" class="btn btn-success btn-small" title="Adicionar Novo Item">
+    {{$count}}
+</a><?php"</b> Tasks";
+  }
+  ?>
   </div>
   
           </div>
@@ -170,6 +155,7 @@
           <?php
         }
         else {
+  
           ?>
          <td align="left"> 
          <div align="center" class='col-md-12' style='margin:0px;padding:5px;width:30px;height:30px;border-radius:50%;background-color:#a8dfd8' >
@@ -200,27 +186,6 @@
   } else if ($dia=='9'){
     $dia="09";
   }
-
-  if ($mes=='1'){
-    $mes="01";
-  } else if ($mes=='2'){
-    $mes="02";
-  } else if ($mes=='3'){
-    $mes="03";
-  } else if ($mes=='4'){
-    $mes="04";
-  } else if ($mes=='5'){
-    $mes="05";
-  } else if ($mes=='6'){
-    $mes="06";
-  } else if ($mes=='7'){
-    $mes="07";
-  } else if ($mes=='8'){
-    $mes="08";
-  } else if ($mes=='9'){
-    $mes="09";
-  }
-  
   $data_soma=$ano.'-'.$mes.'-'.$dia;
   
   {{  $count = DB::table("todoitens")
@@ -233,12 +198,15 @@
   ?>
   
   <div align='center'>
-    @if(empty($count))
-      <b style='color:#f0f0f0'><i>0</i> Tasks</b>
-    @else
-    <a href="{{url('/calendario/'.$data_soma)}}" class="btn btn-success btn-small" title="Adicionar Novo Item">{{$count}}</a>
-    @endif
-    </div>
+  <?php
+  if(empty($count)){
+    echo "<b style='color:#f0f0f0'><i>0</i> Tasks</b>";
+  } else {
+  echo "<b style='padding:0px 5px 0px 5px;background-color:#14a7f0; border-radius:15px;color:#fff'>".$count."</b> Tasks";
+  }
+  ?>
+  </div>
+  
   
     <!-- LISTAGEM DE TAREFAS BD -->
             </div>
