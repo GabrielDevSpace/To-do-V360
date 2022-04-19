@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodolistController;
 use App\Http\Controllers\ItensController;
+use App\Http\Controllers\CalendarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +30,6 @@ Route::post('/storeitem/{id}/{todo}', [ItensController::class, 'store']);
 Route::get('/edititens/{id}/{todo_id}/{todo}', [ItensController::class, 'edit']);
 Route::post('/updateitem/{id}/{todo_id}/{todo}', [ItensController::class, 'update']);
 Route::get('/deleteitem/{id}/{todo_id}/{todo}', [ItensController::class, 'destroy']);
+
+# CALENDARIO
+Route::get('/calendario', [CalendarioController::class, 'calendario']);
