@@ -86,3 +86,24 @@
     margin-right: 0;
 }
 
+/*
+CALENDAR
+*/
+
+.header-col{
+    background: #E3E9E5;
+    color:#536170;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .header-calendar{
+    background: #EE192D;color:white;
+  }
+  .box-day{
+    border:1px solid #E3E9E5;
+    height:150px;
+  }
+  .dayoff{
+      background-color: #ccd1ce;
+  }

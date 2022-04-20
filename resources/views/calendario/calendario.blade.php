@@ -1,43 +1,85 @@
+@extends('layout.app')
+@section('title', 'Itens')
+@section('content')
 
-<html>
-    <head>
-      <title>Calendario de Tarefas</title>
-      <meta content="">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-      <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <style>
-      body{
-        font-family: 'Exo', sans-serif;
-      }
-      .header-col{
-        background: #E3E9E5;
-        color:#536170;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .header-calendar{
-        background: #EE192D;color:white;
-      }
-      .box-day{
-        border:1px solid #E3E9E5;
-        height:150px;
-      }
-      .dayoff{
-          background-color: #ccd1ce;
-      }
-      </style>
-  
-    </head>
-    <body>
-    <div class="row" style='margin:0px'>
-    <div class="col-md-5"   align="center" style='border:1px solid black'>
-  
-  TESTE
+      <div class="card">
+        <div class="card-body">
+    <div class="row" >
+    <div class="col-md-6" align="center">
+      <!-- TAREFAS DO DIA SELECIONADO-->
+      <h4 class="texto-gold" align="center">TO DO</h4>
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th style="width: 40%">Item</th>
+                    <th>Prioridade</th>
+                    <th>Prazo</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($item_calendar as $calendario)
+                <tr class="table-slin">
+                    <td>{{$loop->iteration}}</td>
+                    <td>
+                    <span <?php if ($calendario->status == "REALIZADO"){
+                            $texto_taxado="style='text-decoration:line-through;color:#d4d4d4'";
+                            echo $texto_taxado;
+                        } else {
+                            $texto_taxado="";
+                        } ?>>
+                        {{$calendario->item}}
+                    </span>   
+                    </td>
+                    <td>
+                        <span <?php 
+                        if($calendario->status == "PENDENTE" AND $calendario->prioridade == 'Alta'){
+                            echo "style='color:#f44336;border-radius:10px; padding: 1px 5px 1px 5px;font-size:22px'";
+                        } else if ($calendario->status == "PENDENTE" AND $calendario->prioridade == 'Média'){
+                            echo "style='color:#ffc000;border-radius:10px; padding: 1px 5px 1px 5px;font-size:22px'";
+                        } else if ($calendario->status == "PENDENTE" AND $calendario->prioridade == 'Baixa'){
+                            echo "style='color:#6aa84f;border-radius:10px; padding: 1px 5px 1px 5px;font-size:22px'";
+                        } else {
+                            echo "style='color:#e0e0e0;border-radius:10px; padding: 1px 5px 1px 5px;font-size:22px'";
+                        }
+                        ?>><i class="fa fa-exclamation-triangle"></i></span>    
+                    </td>
+                    <td><span  <?php echo $texto_taxado; ?>>
+                        {{ date('d/m/Y', strtotime($calendario->prazo));}}
+                        </span>
+                    </td>
+                    <td>
+                        <span <?php 
+                        if($calendario->status == 'PENDENTE'){
+                            echo "style='background-color:#bcbcbc;color:#fff;border-radius:10px; padding: 1px 5px 1px 5px;font-size:13px'";
+                        } else {
+                            echo "style='background-color:#80b16b;color:#fff;border-radius:10px; padding: 1px 5px 1px 5px;font-size:13px'";
+                        }
+                        ?>>{{$calendario->status}}</span> 
+                    </td>
+                    <td>
+                        <small>
+                            <a href="{{url('edititens/'.$calendario->id.'/'.$calendario->todo_id.'/'.$calendario->todo)}}" class="btn btn-primary btn-small"><i class="fa-solid fa-square-pen"></i></a>
+                            <a href="{{url('deleteitem/'.$calendario->id.'/'.$calendario->todo_id.'/'.$calendario->todo)}}" class="btn btn-danger btn-small" onclick="if (confirm('Você realmente deseja EXCLUIR este Item?')){return true;}else{event.stopPropagation(); event.preventDefault();};"><i class="fa fa-trash"></i></a>
+                        </small>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
-    <div class="col-md-7" align="center" style='border:1px solid red'>
+      <!-- FIM DAS TAREFAS -->
+    </div>
+    <div class="col-md-6" align="center">
+    
+    
   <?php
+   
+ 
+    montar_calendario(01, 2022);
     // função que permite montar o calendário
     function montar_calendario($mes, $ano){
       // um vetor para guardar os meses
@@ -273,16 +315,11 @@
     }
     
     // vamos montar o mês de março de 2021
-    montar_calendario(04, 2022);
+   
   ?>
-  
+ 
   </div>
-  
-  <footer  class="page-footer font-small blue pt-4" style='position:absolute;bottom:0;width:100%;height:60px;background:#e1e1e1;'>
-    <!-- Copyright -->
-    <div align="center">Developed by <a href="http://developerspace.com.br">Dev Space</a>
-    </div>
-  </footer>
-  </body>
-  </html>
-  
+</div>
+</div>
+
+@endsection
