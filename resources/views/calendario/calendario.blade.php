@@ -74,12 +74,58 @@
       <!-- FIM DAS TAREFAS -->
     </div>
     <div class="col-md-6" align="center">
-    
-    
-  <?php
+    <?php 
+     
+        if (isset($_GET['right']) AND $_GET['right']==13){ 
+          $_GET['right'] = 1;
+          
    
- 
-    montar_calendario(01, 2022);
+        } elseif (isset($_GET['left']) AND $_GET['left'] == 0) {
+          $_GET['left'] = 12;
+    
+        }
+    
+
+        if (isset($_GET['right'])) {
+
+          if (empty($_GET['right'])) {
+            $cal_mes = date("n");
+          } else {
+            $cal_mes = $_GET['right'];
+          }
+
+        } elseif(isset($_GET['left'])) {
+
+          if (empty($_GET['left'])) {
+            $cal_mes = date("n");
+          } else {
+            $cal_mes = $_GET['left'];
+          }
+
+        } else {
+
+          $cal_mes = date("n");
+
+        }
+
+        $ano = date('Y');
+      ?>
+       <table width="100%" cellspacing="0" cellpadding="4" border="1" bordercolor="#f2f2f2">
+      <tr>
+        <th colspan="1" style='text-align:center;font-size:20px'>
+          <a class="text-success" href='?left={{$cal_mes - 1}}'><i class="fa-solid fa-arrow-left"></i></a>
+        </th>
+        <th class="text-success" colspan="5" style='text-align:center'>
+          <?php echo $cal_mes." - ".$ano; ?>
+        </th>
+        <th colspan="1" style='text-align:center;font-size:20px'>
+          <a class="text-success" href='?right={{$cal_mes + 1}}'><i class="fa-solid fa-arrow-right"></i></a>
+        </th>
+      </tr>
+       </table>
+  <?php
+  
+    montar_calendario($cal_mes, $ano);
     // função que permite montar o calendário
     function montar_calendario($mes, $ano){
       // um vetor para guardar os meses
@@ -103,16 +149,13 @@
       // cria a tabela HTML para o calendário
   ?>
    
-  <table width="100%" height="600px" cellspacing="0" cellpadding="4" border="1" bordercolor="#f2f2f2">
-  <tr >
-  <th  colspan="7" style='text-align:center'><?php echo $meses[$mes]." - ".$ano; ?>
-  </th>
-  </tr>
+  <table width="100%" height="600px" cellspacing="0" cellpadding="4" border="1" bordercolor="#f0f0f0">
+ 
   
   <tr>
-  <td align="center" width="14.285%" style="color:#fff; background-color:#ea9999">
+  <td align="center" width="14.285%" style="color:#fff; background-color:#0992bc">
   <?php
-  echo implode('</td ><td align="center" width="14.285%" style="color:#fff; background-color:#2986cc" >', $dias_semana);?>
+  echo implode('</td ><td align="center" width="14.285%" style="color:#fff; background-color:#23bb6c" >', $dias_semana);?>
   </td>
   </tr>
   <?php
@@ -133,7 +176,7 @@
         } 
         else{
           
-          $estilo = '#6e6d6d';
+          $estilo = '#c9c9c9';
         }     
    
         // vamos colocar a data de hoje sublinhada
@@ -141,7 +184,7 @@
          ($ano == date("Y"))){
           ?>
          <td <?php echo $estilo;?> align="left"> 
-            <div align="center" class='col-md-12' style='margin:0px;padding:5px;width:30px;height:30px;border-radius:50%;background-color:#23998a' >
+            <div align="center" class='col-md-12' style='margin:0px;padding:5px;width:30px;height:30px;border-radius:50%;background-color:#239948' >
               <b style='color:#fff;'><?php echo $dia ?></b>
             </div>
             <div align='center' class='col-md-12'>
@@ -203,7 +246,7 @@
   @if(empty($count))
     <b style='color:#f0f0f0'><i>0</i> Tasks</b>
   @else
-  <a href="{{url('/calendario/'.$data_soma)}}" class="btn btn-success btn-small" title="Adicionar Novo Item">{{$count}}</a>
+  <a href="{{url('/calendario/'.$data_soma)}}" class="btn btn-primary btn-small">{{$count}}</a>
   @endif
   </div>
   
@@ -214,7 +257,7 @@
         else {
           ?>
          <td align="left"> 
-         <div align="center" class='col-md-12' style='margin:0px;padding:5px;width:30px;height:30px;border-radius:50%;background-color:#a8dfd8' >
+         <div align="center" class='col-md-12' style='margin:0px;padding:5px;width:30px;height:30px;border-radius:50%;background-color:#96c9ae' >
               <b style='color:#fff;'><?php echo $dia ?></b>
             </div>
             <div align='center' class='col-md-12'>
@@ -278,7 +321,7 @@
     @if(empty($count))
       <b style='color:#f0f0f0'><i>0</i> Tasks</b>
     @else
-    <a href="{{url('/calendario/'.$data_soma)}}" class="btn btn-success btn-small" title="Adicionar Novo Item">{{$count}}</a>
+    <a href="{{url('/calendario/'.$data_soma)}}" class="btn btn-primary btn-small">{{$count}}</a>
     @endif
     </div>
   

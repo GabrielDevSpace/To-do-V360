@@ -3,18 +3,85 @@
 @section('content')
 
     <?php $todo_id = $id; ?> 
+    <h4 class="texto-dark pt-4" align="center">{{$todo}}</h4>
+    <div class="pr-4 p-2" align="right">
+        <button id="btn-div" class="btn btn-primary texto-small"><i class="fa-solid fa-eye"></i> <span id="verEsconder">Novo Item</span></button>
+    </div>
+    <div id="see-hidden">
+        <div class="row m-2">
+            <div class="col-md-8">
+                <form action="{{url('storeitem/'.$id.'/'.$todo)}}" method="POST">
+                    @csrf
+                    <div class="form-row">
 
+                        <div class="col-md-12 pb-2">
+                            <input hidden type="text" name="todo_id" class="form-control" value='{{$id}}' >
+                            <label for="">Item</label>
+                            <input type="text" name="item" class="form-control" autocomplete="off" required>
+                        </div>
+
+                        <div class="col-md-12 pb-2">
+                            <label for="">Historico</label>
+                            <textarea type="textarea" name="historico" class="form-control" autocomplete="off"></textarea>
+                        </div>
+
+                        <div class="col-md-4 pb-2">
+                        <label for="">Criticidade</label>
+                            <select class="form-control" name="prioridade" autocomplete="off">
+                                <option value="Alta">Alta</option>
+                                <option value="Média">Média</option>
+                                <option value="Baixa">Baixa</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 pb-2">
+                        <label for="">Data Prazo:</label>
+                            <input type="date" class="form-control" name="prazo" required>
+                        </div>
+
+                        <div class="col-md-4 pb-2">
+                        <label for="">Status</label>
+                            <select readonly class="form-control" name="status" autocomplete="off">
+                            <option value="PENDENTE">PENDENTE</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="submit" value="Adicionar Item" class="btn btn-success">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    Dashboard
+                    <div class="col-md">
+                       
+                    </div>
+                    <div class="col-md">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    
     <div class="card">
         <div class="card-body" align="right">
+        <!--
             <h4 class="text-primary texto-shadow" align="center">{{$todo}}</h4>
-            <a href="{{url('additem/'.$id.'/'.$todo)}}" class="btn btn-success btn-small" title="Adicionar Novo Item">
+            <a href="{{url('additem/'.$id.'/'.$todo)}}" class="btn btn-success" title="Adicionar Novo Item">
                 <i class="fa fa-plus"></i> <b>Item</b>
+            </a>
+            <a href="{{url('calendario')}}" class="btn btn-primary" title="Adicionar Novo To Do Lists">
+                <i class="fa fa-calendar"></i><b> Calendario</b>
             </a>         
-            <br>
-            <br>
+        -->
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="texto-gold" align="center">TO DO</h4>
+                    <h5 class="texto-gold" align="center">TO DO</h5>
                     <!-- BACKLOG -->
                     <div class="table-responsive">
                         <table class="table table-hover table-striped">
@@ -83,7 +150,7 @@
                 </div>
     
                 <div class="col-md-6">
-                    <h4 class="texto-gold" align="center">DONE</h4>
+                    <h5 class="texto-gold" align="center">DONE</h5>
                     <!-- DONE -->
                     <div class="table-responsive">
                         <table class="table table-hover table-striped">

@@ -12,12 +12,14 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">To Do List<b></b></a>
+        <a class="navbar-brand" href="/">To Do List</a>
         <a href="{{url('/')}}" class="btn btn-primary" title="Adicionar Novo Item">
             <span><i class="fa fa-home" aria-hidden="true"></i></span>
-            
         </a> 
-    
+        &nbsp
+        <a href="{{url('calendario')}}" class="btn btn-primary" title="Adicionar Novo To Do Lists">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+        </a>
       </nav>
 
     @yield('content')
@@ -29,4 +31,16 @@
 
 </body>
 <script src="https://kit.fontawesome.com/6adde2d540.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var btn = document.getElementById('btn-div');
+    var container = document.getElementById('see-hidden');
+    btn.addEventListener('click', function() {
+        
+    if(container.style.display === 'block') {
+        container.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+    }
+    });
+</script>
 </html>

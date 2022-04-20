@@ -10,6 +10,9 @@
                 <input hidden type="text" name="todo_id" class="form-control" value='{{$id}}' ><br>
                 <label for="">Item</label><br>
                 <input type="text" name="item" class="form-control" autocomplete="off" required><br>
+                
+                <label for="">Historico</label><br>
+                <textarea type="textarea" name="historico" class="form-control" autocomplete="off"></textarea><br> 
 
                 <label for="">Criticidade</label><br>
                 <select class="form-control" name="prioridade" autocomplete="off">

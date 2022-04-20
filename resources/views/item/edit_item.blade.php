@@ -10,6 +10,9 @@
                 <label for="">Item</label><br>
                 <input type="text" name="item" class="form-control" value="{{$item->item}}" autocomplete="off" required><br>
 
+                <label for="">Historico</label><br>
+                <textarea type="textarea" name="historico" class="form-control" autocomplete="off">{{$item->historico}}</textarea><br> 
+
                 <label for="">Prioridade</label><br>
                 <select class="form-control" name="prioridade" autocomplete="off">
                     <option value="{{$item->prioridade}}">{{$item->prioridade}}</option>

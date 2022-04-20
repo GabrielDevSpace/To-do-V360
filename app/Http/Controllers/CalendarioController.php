@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Calendario;
-use App\Models\Itens;
 use Illuminate\Support\Facades\DB;
 
 class CalendarioController extends Controller
@@ -22,8 +21,8 @@ class CalendarioController extends Controller
                 
         $calendar = DB::table('todoitens')
         ->join('todolist', 'todo_id', '=', 'todolist.id')
-        ->select('todoitens.*', 'todolist.todo')
-        ->where('prazo', '=' ,$data_calendario)
+        ->select('todoitens.id', 'todoitens.todo_id', 'todoitens.item', 'todoitens.prioridade', 'todoitens.status', 'todoitens.prazo', 'todolist.todo')
+        ->where('todoitens.prazo', '=' ,$data_calendario)
         ->get();
         
         return view('calendario.calendario', ['data_calendario'=> $data_calendario])->with('item_calendar', $calendar);

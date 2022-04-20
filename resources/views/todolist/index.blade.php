@@ -2,18 +2,72 @@
 @section('title', 'Dashboard')
 @section('content')
    
- 
-        <br>
-        <h4 class="texto-dark" align="center">To Do List</h4>
+    <h4 class="texto-dark pt-4" align="center">Listagem de To-Do's</h4>
+    <div class="pr-4 p-2" align="right">
+        <button id="btn-div" class="btn btn-primary texto-small"><i class="fa-solid fa-eye"></i> <span id="verEsconder">Novo To Do</span></button>
+    </div>
+    <div id="see-hidden">
+        <div class="row m-3">
+            <div class="col-md-8">
+                <form action="{{url('store')}}" method="POST" >
+                    @csrf
+                    <div class="form-row">
+    
+                        <div class="col-md-12 pb-2">
+                            <label for="">To Do</label>
+                            <input type="text" name="todo" class="form-control" autocomplete="off">
+                        </div>
+    
+                        <div class="col-md-4 pb-2">
+                            <label for="">Responsavel</label>
+                            <input type="text" name="responsavel" class="form-control" autocomplete="off">
+                        </div>
+    
+                        <div class="col-md-4 pb-2">
+                            <label for="">Criticidade</label>
+                            <select class="form-control" name="criticidade" autocomplete="off">
+                                <option value="Alta">Alta</option>
+                                <option value="Média">Média</option>
+                                <option value="Baixa">Baixa</option>
+                            </select>
+                        </div>
+    
+                        <div class="col-md-4 pb-2">
+                            <label for="">Status</label>
+                            <select readonly class="form-control" name="status" autocomplete="off">
+                                <option value="PENDENTE">PENDENTE</option>
+                            </select>  
+                        </div>
+    
+                        <div class="col-md-12">
+                            <input type="submit" value="Adicionar" class="btn btn-success">
+                        </div>
+    
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                DashBoard
+            </div>
+        </div>
+    </div>
+
+        <div class="line pt-3 pb-3"></div>
+
         <div class="p-3">
             <div class="row p-1">
+                <!-- 
                 <div class="col-md-12" align="right">
                     <div class="p-2">
                         <a href="{{url('create')}}" class="btn btn-success" title="Adicionar Novo To Do Lists">
                             <i class="fa fa-plus"></i><b> To Do</b>
                         </a>
+                        <a href="{{url('calendario')}}" class="btn btn-primary" title="Adicionar Novo To Do Lists">
+                            <i class="fa fa-calendar"></i><b> Calendario</b>
+                        </a>
                     </div>
                 </div> 
+                -->
                 
                 @foreach ($todolist as $item)
 
