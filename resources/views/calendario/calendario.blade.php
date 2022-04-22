@@ -45,7 +45,7 @@
                         } else {
                             echo "style='color:#e0e0e0;border-radius:10px; padding: 1px 5px 1px 5px;font-size:22px'";
                         }
-                        ?>><i class="fa fa-exclamation-triangle"></i></span>    
+                        ?>><i class="fa fa-exclamation-triangle" title="{{$calendario->todo}}"></i></span>    
                     </td>
                     <td><span  <?php echo $texto_taxado; ?>>
                         {{ date('d/m/Y', strtotime($calendario->prazo));}}
@@ -149,7 +149,7 @@
       // cria a tabela HTML para o calendário
   ?>
    
-  <table width="100%" height="600px" cellspacing="0" cellpadding="4" border="1" bordercolor="#f0f0f0">
+  <table width="100%"  cellspacing="0" cellpadding="4" border="1" bordercolor="#f0f0f0">
  
   
   <tr>
