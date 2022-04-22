@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class CalendarioController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function calendario()
     {   

@@ -9,6 +9,16 @@ use App\Models\Itens;
 
 class TodolistController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $todolists = Todolist::where('status', '=', 'PENDENTE')->orderBy('id', 'DESC')->get();

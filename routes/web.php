@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodolistController;
 use App\Http\Controllers\ItensController;
 use App\Http\Controllers\CalendarioController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,13 @@ use App\Http\Controllers\CalendarioController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+  ]);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 # TODO 
 Route::get('/', [TodolistController::class, 'index']);
 Route::get('/create', [TodolistController::class, 'create']);

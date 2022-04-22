@@ -8,6 +8,16 @@ use App\Models\Itens;
 
 class ItensController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function itens($id, $todo)
     {
         $itens = Itens::where('todo_id', '=', $id)->where('status', '=' , 'PENDENTE')->orderBy('prazo', 'ASC')->get();

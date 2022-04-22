@@ -3,7 +3,7 @@
 @section('content')
 
       <div class="card">
-        <div class="card-body">
+      <div class="card-body">
     <div class="row" >
     <div class="col-md-6" align="center">
       <!-- TAREFAS DO DIA SELECIONADO-->
