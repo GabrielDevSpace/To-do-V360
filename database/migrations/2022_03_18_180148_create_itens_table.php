@@ -21,7 +21,7 @@ class CreateItensTable extends Migration
             $table->string('prioridade');
             $table->string('status');
             $table->date('prazo');
-            $table->text('historico');
+            $table->text('historico')->nullable();
             $table->timestamps();
         });
     }
